@@ -1,0 +1,44 @@
+.loading {
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  .loading-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    position: relative;
+    z-index: 1001;
+    background: white;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow-base);
+    font-size: 16px;
+    min-height: 90px;
+    min-width: 150px;
+
+    i {
+      font-size: 24px;
+    }
+  }
+}
+
+.loading-overlay {
+  z-index: 999;
+  display: block;
+  position: absolute;
+  background-color: #383838;
+  opacity: 0.5;
+  transition: opacity .15s linear;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}

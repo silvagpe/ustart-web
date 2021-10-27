@@ -1,0 +1,52 @@
+<nz-page-header nzTitle="Cadastro de usuário">
+</nz-page-header>
+<nz-content>
+    <!-- <h3>Cadastro de usuários</h3> -->
+    <div class="filters">        
+        <p>Informar o campo senha apenas se for um novo usuário ou quiser alterar a senha de um usuário existente</p>
+        <nz-row>
+
+            <nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="6">
+
+                <form nz-form [formGroup]="formGroup" class="login-form" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Informe um email válido">
+                            <nz-input-group nzPrefixIcon="user">
+                                <input type="text" nz-input formControlName="email" placeholder="E-mail" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Informe uma senha de 4 digitos">
+                            <nz-input-group nzPrefixIcon="lock">
+                                <input type="password" nz-input formControlName="senha" placeholder="Senha" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Nome">
+                            <nz-input-group nzPrefixIcon="idcard">
+                                <input type="text" nz-input formControlName="nome" placeholder="Nome" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Ativo">
+                            <input type="checkbox" nz-input formControlName="ativo" /> Ativo
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-row nzJustify="space-between">                        
+                        <nz-col>
+                            <button nz-button class="login-form-button login-form-margin"
+                                [nzType]="'primary'">Salvar</button>
+                        </nz-col>
+                        <nz-col >
+                            <button nz-button class="login-form-button login-form-margin" (click)="back()"
+                                [nzType]="'primary'">Voltar</button>                            
+                        </nz-col>
+                    </nz-row>
+                </form>
+            </nz-col>
+        </nz-row>
+    </div>
+</nz-content>

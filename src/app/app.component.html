@@ -1,0 +1,34 @@
+<nz-layout class="app-layout">
+  
+  <nz-sider *ngIf="isLoggedIn" class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://www.google.com.br/" target="_blank">
+        <img [ngClass]="{'small': isCollapsed}" src="assets/logo.png" alt="logo">
+      </a>
+    </div>
+    <app-menu></app-menu>
+  </nz-sider>
+  <nz-layout class="app-container">
+    <nz-header *ngIf="isLoggedIn">
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+        </span>
+
+        <button class="profile" nzSize="large" nz-button nz-dropdown [nzDropdownMenu]="menu" nzPlacement="bottomRight">
+          <nz-avatar nzIcon="user" nzSize="small"></nz-avatar>
+          {{username}}
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item nzIcon="logout" (click)="logout()"><i nz-icon nzType="logout"></i>Sair</li>
+          </ul>
+        </nz-dropdown-menu>
+      </div>
+    </nz-header>
+    <div class="inner-content" [ngClass]="{'margin': isLoggedIn}">      
+      <router-outlet></router-outlet>
+    </div>
+  </nz-layout>
+</nz-layout>

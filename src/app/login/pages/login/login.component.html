@@ -1,0 +1,31 @@
+<div class="login-container">
+    <div class="inner-container">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="logo-amp">
+        </div>
+        <form nz-form [formGroup]="form" class="login-form" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Campo requerido">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input type="text" nz-input formControlName="username" placeholder="Username" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Campo requerido">
+                    <nz-input-group nzPrefixIcon="lock">
+                        <input type="password" nz-input formControlName="password" placeholder="Password" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+                <div nz-col [nzSpan]="12">
+                    <!-- <a class="login-forgot">Forgot password</a> -->
+                </div>
+            </div>
+            <div nz-row nzJustify="end">
+                <button nz-button class="login-button" nzBlock>Log in</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<nz-page-header (nzBack)="onBack()" nzBackIcon nzTitle="Consulta de Usuários">
+    <nz-page-header-extra>
+        <button nz-button nzType="primary" (click)="newUser()"><i nz-icon nzType="plus"></i>Novo</button>
+      </nz-page-header-extra>
+</nz-page-header>
+
+<nz-content>
+    <h3>Filtros</h3>
+    <div class="search-container">
+        <nz-row>
+            <nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="6">
+                <div class="filter-col">
+                    <nz-input-group [nzSuffix]="suffixIconSearch">
+                        <input type="text" nz-input placeholder="Localizar por e-mail..." [(ngModel)]="searchValue"
+                            (ngModelChange)="this.userSearch.next($event)" />
+                        <!-- (ngModelChange)="onSearchChange($event)"
+                            (clearAction)="onSearchChange('')" -->
+                    </nz-input-group>
+                    <ng-template #suffixIconSearch>
+                        <i nz-icon nzType="search"></i>
+                    </ng-template>
+                </div>
+            </nz-col>
+        </nz-row>
+    </div>
+    <nz-spin nzTip="Consultando..." [nzSpinning]="searching">
+        <nz-table #productsTable [nzData]="users" nzSize="small" [nzFrontPagination]="false" [nzBordered]="true"
+            [nzScroll]="{ y: '450px' }">
+            <thead>
+                <tr>
+                    <th nzWidth="150px">Ações</th>
+                    <th nzWidth="150px">E-mail</th>
+                    <th nzWidth="150px">Nome</th>
+                    <th nzWidth="100px">Data Registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of productsTable.data">
+                    <td>
+                        <button nz-button nzType="primary" nzShape="circle" (click)="editUser(item)">
+                            <i nz-icon nzType="edit"></i>
+                        </button>
+                        <button nz-button nzType="primary" nzShape="circle" (click)="deleteUser(item)">
+                            <i nz-icon nzType="delete"></i>
+                        </button>
+                    </td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.dataRegistro | date: 'dd/MM/yyyy HH:mm:ss'}}</td>                    
+                </tr>
+            </tbody>
+        </nz-table>
+        <div class="paginator">
+            <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="total" nzPageSize="50"
+                (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
+        </div>
+    </nz-spin>
+</nz-content>
