@@ -15,7 +15,12 @@ const routes: Routes = [
     path: AppRoutes.Login.base(),
     component: LoginComponent,
     canActivate: [LoginGuard]
-  },   
+  },
+  {
+    path: AppRoutes.Grupos.base(),
+    loadChildren: () => import('./grupos/grupos.module').then(m => m.GruposModule),
+    canActivate: [AuthGuard]
+  },
   {
     path: AppRoutes.Users.base(),
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsersModule),

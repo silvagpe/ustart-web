@@ -1,4 +1,14 @@
 <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <li nz-submenu nzTitle="Grupos" nzIcon="group">
+        <ul>
+            <li nz-menu-item nzMatchRouter [nzMatchRouterExact]="true">
+                <a routerLink="/grupos">Consulta</a>
+            </li>
+            <li nz-menu-item nzMatchRouter [nzMatchRouterExact]="true">
+                <a routerLink="/grupos/cad-grupo">Novo</a>
+            </li>
+        </ul>
+    </li>
     <li nz-submenu nzOpen nzTitle="Usuários" nzIcon="user">
         <ul>
             <li nz-menu-item nzMatchRouter [nzMatchRouterExact]="true">

@@ -29,13 +29,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 https://angular.io/cli/generate
 
 
+## Criar um módigo
 ```
 Module
-ng g module customer --routing
+npx ng g module grupos --routing
 
+```
+
+## Criar um componente
+```
 Component
-ng g c customer/pages/customer --module customer.module
-ng g c customer/pages/registration-customer --module customer.module
+npx ng g c grupos/pages/grupos --module grupos.module --skip-tests
+npx ng g c grupos/pages/cad-grupo --module grupos.module --skip-tests
 
 
 ```
