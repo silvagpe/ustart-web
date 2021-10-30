@@ -22,7 +22,7 @@
         </nz-row>
     </div>
     <nz-spin nzTip="Consultando..." [nzSpinning]="false">
-        <nz-table #dados nzSize="small" [nzFrontPagination]="false" [nzBordered]="true"
+        <nz-table #dados nzSize="small" [nzData]="grupos" [nzLoading]="loading" [nzFrontPagination]="false" [nzBordered]="true"
             [nzScroll]="{ y: '400px' }">
             <thead>
                 <tr>
