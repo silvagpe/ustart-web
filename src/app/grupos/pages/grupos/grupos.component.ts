@@ -34,8 +34,8 @@ export class GruposComponent implements OnInit {
     console.log("novo grupo");
   }
 
-  public localizar(event): void {
-    console.log(event.target.value);
+  public localizar(event): void {    
+    this.pesquisar(event.target.value);
   }
 
   public editar(grupo: Grupo): void {
