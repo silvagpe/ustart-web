@@ -9,8 +9,7 @@ export class Produto {
     public urlImagem: string
     public codigoExterno: string
 
-    constructor(init?: Partial<Produto>) {
-        debugger;
+    constructor(init?: Partial<Produto>) {        
         if (init) {
             Object.assign(this, init);
         } else {

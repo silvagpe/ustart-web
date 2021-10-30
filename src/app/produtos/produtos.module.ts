@@ -18,6 +18,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzTableModule,
     NzPaginationModule,
     NzIconModule,
-    NzSpinModule
+    NzSpinModule,
+    NzImageModule,
+    NzSelectModule
   ]
 })
 export class ProdutosModule { }
