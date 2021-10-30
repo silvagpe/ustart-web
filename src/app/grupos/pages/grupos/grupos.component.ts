@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { debounce } from 'lodash';
+import { Grupo } from 'src/app/models/grupos/grupo';
 
 @Component({
   selector: 'app-grupos',
@@ -9,6 +10,7 @@ import { debounce } from 'lodash';
 export class GruposComponent implements OnInit {
 
   public titutlo: string = "Consulta de Grupos";  
+  public teste: string = "";
 
   constructor() { 
 
@@ -24,6 +26,14 @@ export class GruposComponent implements OnInit {
 
   public localizar(event):void{
     console.log(event.target.value);
+  }
+
+  public editar(grupo:Grupo): void {
+    console.log("editar grupo");
+  }
+
+  public excluir(grupo:Grupo): void {
+    console.log("excluir grupo");
   }
 
 }

@@ -9,5 +9,6 @@ export const AppRoutes = {
   Grupos: {
     base: () => "grupos",
     CadGrupo: () => { return AppRoutes.Users.base() + "/cad-grupo" },
+    RelGrupos: () => { return AppRoutes.Users.base() + "/relatorio-grupos" },
   },
 };

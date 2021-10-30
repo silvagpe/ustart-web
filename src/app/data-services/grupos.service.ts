@@ -36,8 +36,7 @@ export class GrupoService {
         return this.http.put<Grupo>(url, grupo);
     }
 
-    public delete(id: string): Observable<any> {
-        
+    public delete(id: string): Observable<any> {            
         const url = `${this.endpointsService.getServerUrl()}api/v1/grupo-produto/${id}`;
         return this.http.delete<any>(url);
     }

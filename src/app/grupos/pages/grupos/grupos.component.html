@@ -1,6 +1,7 @@
 <nz-page-header nzBackIcon [nzTitle]="titutlo">
     <nz-page-header-extra>
-        <button nz-button nzType="primary" (click)="novoGrupo()" ><i nz-icon nzType="plus"></i>Novo</button>
+        <button nz-button nzType="primary" (click)="novoGrupo()" >
+            <i nz-icon nzType="plus"></i>Novo</button>
       </nz-page-header-extra>
 </nz-page-header>
 
@@ -10,8 +11,8 @@
         <nz-row>
             <nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="6">
                 <div class="filter-col">
-                    <nz-input-group [nzSuffix]="suffixIconSearch">
-                        <input type="text" (keyup)="localizar($event)" nz-input placeholder="Localizar por descricao"/>                        
+                    <nz-input-group [nzSuffix]="suffixIconSearch">                        
+                        <input type="text" (keyup)="localizar($event)" nz-input placeholder="Localizar por descricao"/>
                     </nz-input-group>
                     <ng-template #suffixIconSearch>
                         <i nz-icon nzType="search"></i>
@@ -34,9 +35,9 @@
                 <tr *ngFor="let item of dados.data">
                     <td>
                         <button nz-button nzType="primary" nzShape="circle">
-                            <i nz-icon nzType="edit"></i>
+                            <i nz-icon nzType="edit" (click)="editar(item)" ></i>
                         </button>
-                        <button nz-button nzType="primary" nzShape="circle">
+                        <button nz-button nzType="primary" nzShape="circle" (click)="excluir(item)">
                             <i nz-icon nzType="delete"></i>
                         </button>
                     </td>
