@@ -5,8 +5,7 @@ export class Grupo {
     public descricao: string;
     public codigoExterno: string;
 
-    constructor(init?: Partial<Grupo>) {
-        debugger;
+    constructor(init?: Partial<Grupo>) {        
         if (init) {
             Object.assign(this, init);
         } else {
