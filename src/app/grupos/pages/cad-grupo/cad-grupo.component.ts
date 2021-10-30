@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppRoutes } from 'src/app/app-routes';
 import { GrupoService } from 'src/app/data-services/grupos.service';
+import { AssignFormHelper } from 'src/app/helper/AssignFormHelper';
 import { Grupo } from 'src/app/models/grupos/grupo';
 
 
@@ -43,7 +44,7 @@ export class CadGrupoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public cancelar():void{    
+  public voltar():void{    
     this.router.navigateByUrl(AppRoutes.Grupos.base());
   }  
 
@@ -66,6 +67,24 @@ export class CadGrupoComponent implements OnInit {
   }
 
   public salvar():void{
+    
+    AssignFormHelper.assignFormValues<Grupo>(this.form, this.grupo);
+    
+    if (this.form.valid){
+
+      const operacao = this.novoRegistro 
+        ? this.grupoService.add(this.grupo)
+        : this.grupoService.update(this.grupo);
+
+      operacao.subscribe(
+        (result)=>{
+          this.voltar();
+        }, 
+        (erro)=>{
+          alert(erro);
+        });
+    }
+    
     
   }
 
