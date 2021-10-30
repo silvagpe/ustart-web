@@ -1,6 +1,6 @@
-<nz-page-header nzBackIcon nzTitle="Consulta de Grupos">
+<nz-page-header nzBackIcon [nzTitle]="titutlo">
     <nz-page-header-extra>
-        <button nz-button nzType="primary"><i nz-icon nzType="plus"></i>Novo</button>
+        <button nz-button nzType="primary" (click)="novoGrupo()" ><i nz-icon nzType="plus"></i>Novo</button>
       </nz-page-header-extra>
 </nz-page-header>
 
@@ -11,7 +11,7 @@
             <nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="6">
                 <div class="filter-col">
                     <nz-input-group [nzSuffix]="suffixIconSearch">
-                        <input type="text" nz-input placeholder="Localizar por descricao"/>                        
+                        <input type="text" (keyup)="localizar($event)" nz-input placeholder="Localizar por descricao"/>                        
                     </nz-input-group>
                     <ng-template #suffixIconSearch>
                         <i nz-icon nzType="search"></i>
