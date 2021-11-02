@@ -1,3 +1,11 @@
+# Aviso
+
+## Projeto inicial
+
+Segue o código fonte do projeto inicial do curso
+https://github.com/silvagpe/ustart-web-inicial
+
+
 # WebclientAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
