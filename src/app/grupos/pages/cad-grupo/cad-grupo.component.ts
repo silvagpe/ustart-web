@@ -84,8 +84,7 @@ export class CadGrupoComponent implements OnInit {
           alert(erro);
         });
     }
-    
-    
+        
   }
 
 

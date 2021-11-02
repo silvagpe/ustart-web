@@ -35,18 +35,18 @@ export class GruposComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
+  public editar(grupo: Grupo): void {
+    var url = `${AppRoutes.Grupos.CadGrupo()}/${grupo.id}`        
+    this.router.navigateByUrl(url);
+  }
+
   public localizar(event): void {    
     this.pesquisar(event.target.value);
   }
 
-  public editar(grupo: Grupo): void {
-    var url = `${AppRoutes.Grupos.CadGrupo()}/${grupo.id}`        
-    this.router.navigateByUrl(url);
-
-  }
-
+  
   public excluir(grupo: Grupo): void {
-    if (confirm(`Deseja excluir esse item? ${grupo.descricao}` )){
+    if (confirm(`Deseja excluir esse item? ${grupo.descricao}`)){
       this.grupoService.delete(grupo.id).subscribe(
         (result)=>{
           this.pesquisar("")
