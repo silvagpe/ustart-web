@@ -28,6 +28,7 @@
                     <th nzWidth="150px">Ações</th>
                     <th nzWidth="250px">Descrição</th>
                     <th>Nome</th>
+                    <th>Preço</th>
                     <th>Código externo</th>
                     <th>Imagem</th>
                 </tr>
@@ -44,6 +45,7 @@
                     </td>
                     <td>{{item.nome}}</td>
                     <td>{{item.descricao}}</td>
+                    <td>{{item.preco | currency : 'R$'}}</td>
                     <td>{{item.codigoExterno}}</td>
                     <td>
                         <img nz-image width="100px" height="100px"
