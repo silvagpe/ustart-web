@@ -37,7 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 https://angular.io/cli/generate
 
 
-## Criar um módigo
+## Criar um módulo
 ```bash
 #Grupo
 npx ng g module grupos --routing
