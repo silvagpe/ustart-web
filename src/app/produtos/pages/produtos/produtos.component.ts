@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/produtos/produto';
 import { debounce } from 'lodash';
+import { ProdutoService } from 'src/app/data-services/produto.service';
+import { AppRoutes } from 'src/app/app-routes';
+import { Router } from '@angular/router';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-produtos',
@@ -15,22 +19,67 @@ export class ProdutosComponent implements OnInit {
   public loading: boolean = false;
   public produtos: Produto[] = [];
 
-  constructor() { 
+  constructor(
+    private router: Router,
+    private produtoService: ProdutoService,
+    private modalService: NzModalService
+  ) {
     this.localizar = debounce(this.localizar, 400);
   }
 
   ngOnInit(): void {
+    this.pesquisar("");
   }
 
-  public localizar(event): void {    
-    //this.pesquisar(event.target.value);
+  public localizar(event): void {
+    this.pesquisar(event.target.value);
+  }
+
+  private pesquisar(pesquisa: string): void {
+    this.loading = true;
+
+    this.produtoService.get(pesquisa).subscribe(
+      (result) => {
+        this.produtos = result;
+        this.loading = false;
+      },
+      (err) => {
+        this.loading = false;
+      }
+    );
   }
 
 
-  public novo() { }
+  public novo() {
+    var url = `${AppRoutes.Produtos.CadProduto()}/novo`
+    this.router.navigateByUrl(url);
+  }
 
-  public editar(produto: Produto) { }
-  
-  public excluir(produto: Produto) { }
+  public editar(produto: Produto) {
+    var url = `${AppRoutes.Produtos.CadProduto()}/${produto.id}`
+    this.router.navigateByUrl(url);
+  }
 
+  public excluir(produto: Produto) {
+    if (confirm(`Deseja excluir o registro ${produto.nome}?`)) {
+      this.produtoService.delete(produto.id).subscribe(
+        (result) => {
+          this.pesquisar("");
+        },
+        (err) => {
+          let msg: string = '';
+          if (err.error) {
+            for (const iterator of err.error) {
+              msg += `<p>${iterator.message}</p>`
+            }
+          }
+          this.modalService.error({
+            nzTitle: 'Falha ao excluir o registro',
+            nzContent: `<p>Verifique os dados e tente novamente.</p>
+                        ${msg}`
+          });
+        }
+      );
+    }
+  }
 }
