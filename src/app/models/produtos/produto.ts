@@ -9,9 +9,9 @@ export class Produto {
     public urlImagem: string
     public codigoExterno: string
 
-    constructor(init?: Partial<Produto>) {        
-        if (init) {
-            Object.assign(this, init);
+    constructor(inicial?: Partial<Produto>) {        
+        if (inicial) {
+            Object.assign(this, inicial);
         } else {
             this.id = uuidv4();
         }

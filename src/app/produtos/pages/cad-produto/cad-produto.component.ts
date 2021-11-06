@@ -52,6 +52,7 @@ export class CadProdutoComponent implements OnInit {
         this.pesquisarPorId();
       }
     })
+    
   }
 
   ngOnInit(): void {
@@ -115,7 +116,7 @@ export class CadProdutoComponent implements OnInit {
       const operacao = this.novoRegistro
         ? this.produtoService.add(this.produto)
         : this.produtoService.update(this.produto);
-
+        
       operacao.subscribe((result) => {
         this.voltar();
       },

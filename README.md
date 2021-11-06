@@ -57,6 +57,7 @@ npx ng g c grupos/pages/cad-grupo --module grupos.module --skip-tests
 #Produtos
 npx ng g c produtos/pages/produtos --module produtos.module --skip-tests
 npx ng g c produtos/pages/cad-produto --module produtos.module --skip-tests
+npx ng g c produtos/pages/graficos --module produtos.module --skip-tests
 
 
 ```

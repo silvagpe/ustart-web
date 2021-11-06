@@ -62,6 +62,7 @@ export class ProdutosComponent implements OnInit {
 
   public excluir(produto: Produto) {
     if (confirm(`Deseja excluir o registro ${produto.nome}?`)) {
+
       this.produtoService.delete(produto.id).subscribe(
         (result) => {
           this.pesquisar("");
@@ -79,6 +80,7 @@ export class ProdutosComponent implements OnInit {
                         ${msg}`
           });
         }
+       
       );
     }
   }

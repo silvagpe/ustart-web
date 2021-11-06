@@ -20,6 +20,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzRateModule } from 'ng-zorro-antd/rate';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzIconModule,
     NzSpinModule,
     NzImageModule,
-    NzSelectModule
+    NzSelectModule,
+    NzRateModule
   ]
 })
 export class ProdutosModule { }

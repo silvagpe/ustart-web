@@ -12,7 +12,7 @@
         <div nz-row>
             <div nz-col nzSm="24">
                 <nz-form-label nzFor="nome" [nzNoColon]="true">Grupo</nz-form-label>
-                <nz-form-item>
+                <nz-form-item>                    
                     <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">                        
                         <nz-select nzShowSearch nzAllowClear [(ngModel)]="grupoSelecionado"
                             [nzPlaceHolder]="carregandoGrupos ? 'Carregando...' : 'Selecione...'"
@@ -33,7 +33,7 @@
                 <nz-form-label nzFor="nome" [nzNoColon]="true">Nome</nz-form-label>
                 <nz-form-item>
                     <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">
-                        <input nz-input placeholder="Digite aqui..." formControlName="nome" id="nome" />
+                        <input nz-input placeholder="Digite seu nome..." formControlName="nome" id="nome" />
                     </nz-form-control>
                 </nz-form-item>
             </div>

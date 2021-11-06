@@ -13,12 +13,15 @@ export class ProdutoService {
 
     public get(pesquisar: string = null): Observable<Produto[]> {
 
+        //http://localhost:5000/api/v1/produto/?pesquisa=aq
+
         const url = `${this.endpointsService.getServerUrl()}api/v1/produto/?pesquisa=${pesquisar}`
         return this.http.get<Produto[]>(url);
     }
 
     public getById(id: string = null): Observable<Produto> {
 
+        //http://localhost:5000/api/v1/produto/d992d47f-80c6-47d5-a981-ffdc4c21d28a
         const url = `${this.endpointsService.getServerUrl()}api/v1/produto/${id}`
         return this.http.get<Produto>(url);
     }
