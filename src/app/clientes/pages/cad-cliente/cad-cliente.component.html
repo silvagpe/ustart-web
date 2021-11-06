@@ -1,1 +1,74 @@
-<p>cad-cliente works!</p>
+<nz-page-header nzBackIcon [nzTitle]="novoRegistro ? 'Novo registro' : 'Editar registro'">
+    <nz-page-header-extra>
+        <button nz-button (click)="cancelar()"><i nz-icon class="far fa-undo" nzTheme="outline"></i>Cancelar</button>
+        <button nz-button nzType="primary" (click)="salvar()"><i nz-icon class="far fa-check"></i>Salvar</button>
+    </nz-page-header-extra>
+</nz-page-header>
+
+
+<div class="padding_form">
+
+    <form nz-form [formGroup]="form" *ngIf="produto">
+        <div nz-row>
+            <div nz-col nzSm="24">
+                <nz-form-label nzFor="nome" [nzNoColon]="true">Grupo</nz-form-label>
+                <nz-form-item>
+                    <nz-select nzShowSearch nzAllowClear [(ngModel)]="grupoSelecionado"
+                        [nzPlaceHolder]="carregandoGrupos ? 'Carregando...' : 'Selecione...'"
+                        formControlName="grupoProdutoId">
+                        <ng-container *ngFor="let grupo of grupos">
+                            <nz-option *ngIf="!carregandoGrupos" [nzLabel]="grupo.descricao" [nzValue]="grupo.id">
+                            </nz-option>
+                        </ng-container>
+                        <nz-option *ngIf="carregandoGrupos" nzDisabled nzCustomContent>
+                            <i nz-icon nzType="loading" class="loading-icon"></i>
+                            Carregando...
+                        </nz-option>
+                    </nz-select>
+
+                </nz-form-item>
+            </div>
+            <div nz-col nzSm="24">
+                <nz-form-label nzFor="nome" [nzNoColon]="true">Nome</nz-form-label>
+                <nz-form-item>
+                    <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">
+                        <input nz-input placeholder="Digite aqui..." formControlName="nome" id="nome" />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSm="24">
+                <nz-form-label nzFor="nome" [nzNoColon]="true">Descricao</nz-form-label>
+                <nz-form-item>
+                    <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">
+                        <input nz-input placeholder="Digite aqui..." formControlName="descricao" id="descricao" />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSm="24">
+                <nz-form-label nzFor="nome" [nzNoColon]="true">Preço</nz-form-label>
+                <nz-form-item>
+                    <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">
+                        <input nz-input placeholder="Digite aqui..." formControlName="preco" id="preco" />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSm="24">
+                <nz-form-label nzFor="nome" [nzNoColon]="true">Url Imagem</nz-form-label>
+                <nz-form-item>
+                    <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">
+                        <input nz-input placeholder="Digite aqui..." formControlName="urlImagem" id="urlImagem" />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>            
+            <div nz-col nzSm="24">
+                <nz-form-label nzFor="nome" [nzNoColon]="true">Cod. Externo</nz-form-label>
+                <nz-form-item>
+                    <nz-form-control [nzSpan]="24" nzErrorTip="Campo requerido">
+                        <input nz-input placeholder="Digite aqui..." formControlName="codigoExterno"
+                            id="codigoExterno" />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </form>
+</div>
