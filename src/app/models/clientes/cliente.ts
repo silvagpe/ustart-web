@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export class Grupo {
+export class Cliente {
     public id: string
     public codigoExterno: string
     public ativo: boolean
@@ -20,7 +20,7 @@ export class Grupo {
     public email: string
     public limiteDeCredito: number
 
-    constructor(init?: Partial<Grupo>) {
+    constructor(init?: Partial<Cliente>) {
         if (init) {
             Object.assign(this, init);
         } else {

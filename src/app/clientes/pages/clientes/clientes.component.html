@@ -1,1 +1,55 @@
-<p>clientes works!</p>
+<nz-page-header nzTitle="Consulta clientes">
+    <nz-page-header-extra>
+        <button nz-button nzType="primary" (click)="novo()"><i nz-icon nzType="plus"></i>Novo</button>
+      </nz-page-header-extra>
+</nz-page-header>
+
+<nz-content>
+    <h3>Filtros</h3>
+    <div class="search-container">
+        <nz-row>
+            <nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="6">
+                <div class="filter-col">
+                    <nz-input-group [nzSuffix]="suffixIconSearch">
+                        <input type="text" nz-input placeholder="Localizar por descricao" (keyup)="localizar($event)"/>                        
+                    </nz-input-group>
+                    <ng-template #suffixIconSearch>
+                        <i nz-icon nzType="search"></i>
+                    </ng-template>
+                </div>
+            </nz-col>
+        </nz-row>
+    </div>
+    <nz-spin nzTip="Consultando..." [nzSpinning]="false">
+        <nz-table #dados [nzData]="clientes"  [nzLoading]="loading" nzSize="small" [nzFrontPagination]="false" [nzBordered]="true"
+            [nzScroll]="{ y: '450px' }">
+            <thead>
+                <tr>
+                    <th nzWidth="150px">Ações</th>
+                    <th nzWidth="250px">Nome</th>
+                    <th nzWidth="250px">Razão S.</th>
+                    <th>E-mail</th>                    
+                    <th>Fone</th>                    
+                    <th>Código externo</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of dados.data">
+                    <td>
+                        <button nz-button nzType="primary" nzShape="circle" (click)="editar(item)">
+                            <i nz-icon nzType="edit"></i>
+                        </button>
+                        <button nz-button nzType="primary" nzShape="circle" (click)="excluir(item)">
+                            <i nz-icon nzType="delete"></i>
+                        </button>
+                    </td>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.razaoSocial}}</td>                    
+                    <td>{{item.email}}</td>                                        
+                    <td>{{item.fone}}</td>                                        
+                    <td>{{item.codigoExterno}}</td>                    
+                </tr>
+            </tbody>
+        </nz-table>        
+    </nz-spin>
+</nz-content>
