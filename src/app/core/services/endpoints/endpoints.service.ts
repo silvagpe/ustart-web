@@ -13,4 +13,8 @@ export class EndpointsService {
   public getLoginUrl(): string {
     return `${environment.apiUrl}api/v1/autenticacao`;
   }
+
+  public getIbgeApiUrl(): string {
+    return `https://servicodados.ibge.gov.br/`;
+  }
 }
