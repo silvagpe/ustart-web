@@ -45,6 +45,8 @@ npx ng g module grupos --routing
 #Produto
 npx ng g module produtos --routing
 
+npx ng g module clientes --routing
+
 ```
 
 ## Criar um componente
@@ -58,6 +60,10 @@ npx ng g c grupos/pages/cad-grupo --module grupos.module --skip-tests
 npx ng g c produtos/pages/produtos --module produtos.module --skip-tests
 npx ng g c produtos/pages/cad-produto --module produtos.module --skip-tests
 npx ng g c produtos/pages/graficos --module produtos.module --skip-tests
+
+#Clientes
+npx ng g c clientes/pages/clientes --module clientes.module --skip-tests
+npx ng g c clientes/pages/cad-cliente --module clientes.module --skip-tests
 
 
 ```
