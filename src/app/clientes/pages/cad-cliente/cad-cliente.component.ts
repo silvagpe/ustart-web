@@ -111,7 +111,6 @@ export class CadClienteComponent implements OnInit {
     //Passa os valores do form para o objeto
     AssignFormHelper.assignFormValues<Cliente>(this.form, this.cliente);
 
-    console.log(this.cliente);
 
     //Se o form estiver válido segue para o processo de salvar ou atualizar
     if (this.form.valid) {
@@ -120,7 +119,9 @@ export class CadClienteComponent implements OnInit {
       this.cliente.estadoId = this.cliente.estadoId.toString();
 
       //Verificar qual operaçao o usuário está querendo executar
-      const operacao = this.novoRegistro ? this.clienteService.add(this.cliente) : this.clienteService.update(this.cliente);
+      const operacao = this.novoRegistro 
+        ? this.clienteService.add(this.cliente) 
+        : this.clienteService.update(this.cliente);
 
       operacao.subscribe((result) => {
         this.cancelar();
